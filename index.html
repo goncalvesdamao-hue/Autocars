@@ -270,8 +270,9 @@ var CK=['Confira os documentos do carro e se os dados batem com o dono','Veja se
 CK.forEach(function(t,i){var li=document.createElement('li');li.innerHTML='<label><input type="checkbox"> '+t+'</label>';$('ck').appendChild(li)});
 $('ck').onchange=function(){var n=$('ck').querySelectorAll('input:checked').length;$('pg').style.width=(n/CK.length*100)+'%';$('pt2').textContent=n+' de '+CK.length+' conferidos'+(n===CK.length?'. Tudo certo, pode negociar com mais segurança.':'.')};$('ck').onchange();
 $('nb').onclick=function(){openWa('Olá, sou '+($('nn').value.trim()||'cliente')+'. Quero ser avisado quando chegarem carros novos.')};
-function openWa(u){var w=window.open(u,'_blank','noopener');if(!w)location.href=u}
+function openWa(u){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'whatsapp',title:'Clique no WhatsApp',event:true})}catch(e){}var w=window.open(u,'_blank','noopener');if(!w)location.href=u}
 document.addEventListener('click',function(e){var a=e.target.closest('a[href^="https://wa.me"]');if(a){e.preventDefault();openWa(a.href)}});
 </script>
+<script data-goatcounter="https://autocars.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
